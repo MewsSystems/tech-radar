@@ -1,0 +1,314 @@
+[
+  {
+    "name": "Centralization of code",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "While we're not utilizing a single monorepo for everything, always try to collocate the code as much as possible, to simplify changes touching multiple parts of codebase. This eliminates the need for chain of pull requests, allows making the changes atomic and encourages contribution to shared libraries. In case when opensourcing something, feel free to break this pattern and isolate the opensourced code to separate repository."
+  },
+  {
+    "name": "Methodology-agnostic delivery",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "There is no centralized delivery methodology that everyone would have to follow. It's up to individual teams to pick their preferred methodology. There are methodology-agnostic metrics and SLOs that the team needs to keep healthy, but as long as that happens, it doesn't matter if the team practices SCRUM, Kanban, Scrumban, anarchy or something else. That's up their decision to choose what suits the best."
+  },
+  {
+    "name": "DORA metrics and practices",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "Monitor the main 4 DORA metrics, adopt practices and technologies that contribute to decreasing mean time to recovery, decreasing change failure rate, increasing deployment frequency and reducing lead time for changes."
+  },
+  {
+    "name": "Minimize time to value",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "Make the delivery process from idea to customer value delivery as short and incremental as possible in order to gather feedback fast. Slice the deliverables, prefer incremental delivery over big projects, even if it means a bit more work in total. Adopt tools, practices and technologies that help with such slicing or even enable slicing of something that wouldn't otherwise be feasible to slice."
+  },
+  {
+    "name": "Two-level code review",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "Every change to our codebase has to go through two-level code review. The first level is considered a peer review, everybody should get involved and the main purpose of this round is knowledge sharing, code clarity, elimination of functional problems and other similar aspects. The second level is considered a code-owner review, selected people participate in this round and focus here should be the overall quality, non-functional aspects like performance, security, maintainability and also assessment of how the change fits into the bigger picture."
+  },
+  {
+    "name": "Open source code",
+    "ring": "Trial",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "siroky",
+    "description": "Open-source stabilized parts of the codebase that are well isolated, agnostic to our business and likely to be useful for others. Good examples are libraries for communication with various third parties, libraries with abstract algorithms and data types unrelated to hospitality or infrastructure / platform tools. Open-sourcing is not limited to code only, so share also well established practices, process or guides. For open-sourced stuff, maintain higher bar for quality as it is part our public picture."
+  },
+  {
+    "name": "Backend: Modularization",
+    "ring": "Trial",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "We're outgrowing the current layered monolithic architecture fast, so in order to improve teams' agility, focus on their domain and autonomy, we recommend looking at possible \"fracture planes\" to separate your team's code and data from the others. Tooling team partnered with Payments Processing to trial this approach and pave the way for other modules, but you can start looking at your domain boundaries in advance to make the architecture changes easier once this is more easily available for everyone."
+  },
+  {
+    "name": "Code ownership by teams",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "Use GitHub CODEOWNERS as described in <a href=\"https://github.com/MewsSystems/tech-documents/blob/master/rfcs/0060-automate-reviews-and-checks-using-codeowners.md\">RFC-0060</a> to make it clear which part of codebase is owned by which team. This effort serves to increase sense of ownership and have clear accountability, as well as to help finding out future module boundaries for the <strong>Backend: Modularization</strong> initiative. "
+  },
+  {
+    "name": "Automated code analysis",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "Automate repetitive or mechanical parts of code review so that everyone can focus on more important aspects of the review. Use code formatters, linters, static analyzers or more fine-tuned build settings where appropriate, or talk to the Platform teams if you think a new rule could help us in the future."
+  },
+  {
+    "name": "Azure cloud-native",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "Microsoft Azure is our cloud provider of choice. Host all of our infrastructure in Azure and utilize Azure-specific services, even if this technically increases the risk of vendor lock-in. Be as far from infrastructure as possible, prefer SaaS/FaaS/PaaS over IaaS offerings."
+  },
+  {
+    "name": "Azure DevOps Pipelines",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "Use Azure DevOps Pipelines for delivery. Builds, deployments and similar complex tasks related to app delivery should use DevOps for its template support, agent pool and existing monitoring. Other tools might be better or necessary in some cases, but for delivery, Azure DevOps is the solution with the strongest support within our Platform."
+  },
+  {
+    "name": "GitHub Actions",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "<p>Automate repository and PR tasks (except builds themselves) using GH Actions. They are more lightweight and easier to author than Azure DevOps pipelines, and they offer a lot of functionality specific to automating GH events and processes. Platform does support GH Actions with some knowledge and monitoring, but not as extensively as with DevOps.</p>\n<p>When using 3rd party Actions, consider the trustworthiness and risks associated with bugs or security leaks. Prefer pinning 3rd party actions to a specific commit, not just version, as those are mutable.</p>"
+  },
+  {
+    "name": "Continuous Integration",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "<p>Integrate early, integrate often. Feature branches should live at most a few days so that PR stay reasonably small, and that we can ensure all the changes work together. Use Feature Toggles and/or Branch by Abstraction patterns to keep unfinished functionality hidden from users to reduce risks of breaking changes while still iterating on the new functionality or fix.</p>\n<p>Before merging, use PR automation to prevent regressions and disrupting other people's work. Frequent, small, high quality changes enable Continuous Delivery</p>"
+  },
+  {
+    "name": "Continuous Delivery",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "<p>Use patterns and practices that ensure our main branches are always in a releasable state. Feature Toggles, strong test automation coverage on all levels (unit, integration, end to end), and manual pre-merge testing only where necessary. Treat merged changes as already on their way to production, do not rely on any manual steps after merging, except enabling feature flags to perform feature release. Continuous Delivery practices have high impact on quality and lead time if done right, but also can lead to more problems if the changes aren't tested and isolated well.</p>\n<p>Where possible, consider also Continuous Deployment when Continuous Delivery is already achieved.</p>"
+  },
+  {
+    "name": "Zapier",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>Automate cross-tool actions with Zaps to reduce manually copying tasks or alerts, or add new functionality to tools that provide webhooks on various actions. Although Zapeir doesn't provide that much functionality and maintainability as *aaC approaches (GitHub actions etc), zaps are easier to write and have a lot of integrations out of the box, so we use them for non-crucial actions and as a glue for different services.</p>"
+  },
+  {
+    "name": "Mobile: Multi-platform development using Flutter",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>Do not build native apps, use a multi-platform technology allowing us to reuse code and design across platforms.</p>\n<p>With the custom design system, we're not interested in native components each OS provides, the look and feel should be the same for each OS. Flutter is the technology of choice, as it provides high speed of development and high performance of the resulting app. The main complexity is the business logic, so we don't need to deal with the underlying platform capabilities that often.</p>"
+  },
+  {
+    "name": "Mobile: BLoC-based architecture",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>BLoC (Business Logic Component) is an architectural pattern initially suggested by Google that relies on streams for events and states. With the most popular implementation, bloc and flutter_bloc libraries, it allows us to architect an app as a set of FSM, each of them dealing with the logic of a specific feature of the app. BLoC plays nicely with the FP principles: events and states are immutable, UI is a function of the state.</p>"
+  },
+  {
+    "name": "Mobile: feature-first code structure",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>Feature-first code structure is more flexible and scalable. Each feature should be as independent as possible, and it can be viewed as a plugin that can be turned on and off with minimal impact on other features.</p>\n<p>Prefer this structure over layer-first approach (that can be easier to write but harder to maintain).</p>"
+  },
+  {
+    "name": "Backend: Data layer improvements",
+    "ring": "Assess",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Data layer encompasses gathering data from remote sources (e.g. Backend database) and displaying it in views. It constitutes a huge chunk of engineer's work. Reduction of boilerplate and addition of automation and code generation should increase our efficiency."
+  },
+  {
+    "name": "Backend: Hosted as a single app",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Because our Backend is designed as a monolithic application, we believe the easiest way to host it is by creating one application package and deploying it to Azure App Service. This leads to simple deployment and development environment that is easy to set-up."
+  },
+  {
+    "name": "API-only backend, thicker clients",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "A significant portion of our application is currently rendered on the server-side. We're aiming to completely remove server-side rendering in favor of client-side rendering that will utilize server-side APIs to fetch data / perform actions. The only server-side rendered pages that will stay are the \"bootstrap pages\" for the client-side apps."
+  },
+  {
+    "name": "Statically typed languages",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Strongly & statically typed languages add safety to all internal data modelling and detect more types of errors during compilation. This increases our confidence in correctness of the resulting programs.\n\nIn practice, this means using C# on Backend and TypeScript on Frontend."
+  },
+  {
+    "name": "Functional programming",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Some concepts from functional programming can further increase the safety provided by strongly & statically typed languages. We're applying these concepts in our code using libraries like FuncSharp in C# and fp-ts in TypeScript."
+  },
+  {
+    "name": "Backend: Azure SQL",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Our monolithic app is developed around a relational database. Following the ideas from the Azure cloud-native initiative, we chose Azure SQL database as the primary data storage."
+  },
+  {
+    "name": "Centralize best practices",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Even though most of our products share a single code-base, most of the teams spent a lot of time working in isolation. This leads to individual teams adopting different common practices. In order to allow the teams to learn from one another & keep the code-base consistent, we're aiming to centralize the best practices to allow re-use among teams. e.g. by building libraries, tools, design systems and frameworks that ideally propage / enforce those best practices automatically."
+  },
+  {
+    "name": "Frontend: Repository modularization",
+    "ring": "Adopt",
+    "quadrant": "Coding",
+    "isNew": "FALSE",
+    "owner": "pbambusek",
+    "description": "<p>\nWhen writing a code, we want to have a clear definition and understanding of where the code belongs, so that the codebase is kept properly organized and is easy to maintain. Especially, in bigger applications maintained by multiple teams, we want to have clear and thin boundaries between parts of the code, so that it's clear which part is maintained and developed by which team.\n</p>\n<p>\nOur codebase was growing organically over the years, with no proper guidance on the code placement. Many bad patterns were adopted or followed, and are still used today. We want untangle the code into more well-defined and isolated modules, with each of them focusing on concrete feature or domain, and having a clear owner. \n</p>\n<p>For more details, see <a href=\"https://github.com/MewsSystems/tech-documents/blob/master/rfcs/0065-application-code-structure-improvements.md\">RFC-0065</a></p>"
+  },
+  {
+    "name": "RFCs as change documentation",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "pbambusek",
+    "description": "<p>\nAs our company grows, it is more and more difficult to align on significant changes. It is much harder to address every interested person or stakeholder in a single meeting or similar event. And for bigger problems, where lot of ideas and arguments needs to be considered, it's even unfeasible to discuss them in person completely.\n</p>\n<p>\nAs a solution to scale, we want to adopt process of writing and reviewing design documents. We will adopt a name \"Request for Comments\" (RFC) for the documents, as it is well-known and self-explanatory concept in our industry. The benefit of written documents is for each interested person to be able to read and review them when it suits them, meeting only to discuss details if needed. Once a document is written, it is also kept archived for future reference, serving as a documentation of past decisions.\n</p>"
+  },
+  {
+    "name": "Quality: Improving E2E coverage",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "renatkulalov",
+    "description": "Improving our E2E coverage for both Mobile and Web to 100%, will allow us to reduce required manual testing effort to near zero, leaving only “on demand” and exploratory manual testing. This enables much faster delivery of features and should allow QA Engineers to focus more on analysing and understanding planned features with focus on maintaining and expanding their automated E2E suite.  "
+  },
+  {
+    "name": "Quality: Quality Engineering",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "renatkulalov",
+    "description": "Traditional Quality Assurance is a reactive approach that identifies defects later in the development cycle and often requires an extensive manual testing effort. This approach, whilst being widespread, has its obvious shortcomings. Issues are found on “already made” software and the time spent testing manually slows delivery whilst being fairly repetitive. \n \nQuality Engineering on the other hand aims to be proactive and optimised in its approach to delivering product of high quality. Actions taken within the transition to Quality Engineering will allow us to achieve so called “shift left testing” the main aim of which is to move Quality processes to earlier stages of development. QA Engineers can review and analyse the features before the development stage, contributing to upholding quality standards in the team rather than manually testing every issue and Developers will be able to run E2E tests with ease on their local machines during feature development. Which means less bugs make it to even a PR stage, features are not slowed down by manual testing and the delivery speeds up massively as a result. "
+  },
+  {
+    "name": "Data: Lakehouse architecture for our DWH",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks."
+  },
+  {
+    "name": "Data: mesh",
+    "ring": "Assess",
+    "quadrant": "Architecture",
+    "isNew": "TRUE",
+    "owner": "vojtakopal",
+    "description": "Scale our data products with applying this socio-technical paradigm."
+  },
+  {
+    "name": "Data: Fivetran",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Allow easy plug&play approach to continually ingest data into our lakehouse."
+  },
+  {
+    "name": "Data: dbt",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach."
+  },
+  {
+    "name": "Data: Power BI",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Offer visual and analytical insights into our data."
+  },
+  {
+    "name": "Data: Power BI Embedded",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "An embedded version of Power BI powering our Mews Analytics product."
+  },
+  {
+    "name": "Data: Looker",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Build our reporting and analyse data in a platform supporting CI/CD, testing and version control."
+  },
+  {
+    "name": "Data: Hightouch",
+    "ring": "Trial",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Push data from our lakehouse to destinations such as Intercom or Salesforce."
+  },
+  {
+    "name": "Data: Azure Data Factory for ETL and reverse ETL",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Ingest data into our lakehouse using Azure Data Factory to support more advance workloads or connectors not support by Fivetran."
+  },
+  {
+    "name": "Data: Azure Functions for ETL",
+    "ring": "Adopt",
+    "quadrant": "Platforms",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "Ingest data into our lakehouse using Azure Functions to support custom API endpoints."
+  }
+]
