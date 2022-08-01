@@ -1,5 +1,5 @@
 # Mews Technology Radar
-Explore the current Mews Technology Radar at <insert url>
+Explore the current [Mews Technology Radar](https://radar.thoughtworks.com/?sheetId=https%3A%2F%2Fraw.githubusercontent.com%2FMewsSystems%2Ftech-radar%2Fmain%2Fmews-technology-radar.json).
 
 ## Updating the radar
 We use a slightly modified version of the [ThoughtWorks build-your-own-radar](https://github.com/thoughtworks/build-your-own-radar#using-json-data) format.
