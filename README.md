@@ -12,7 +12,7 @@ type Blip = {
     name: string;
 
     /**
-     * See "What are the rings?" in https://www.thoughtworks.com/radar/faq-and-more.
+     * See "What are the rings?" in https://www.thoughtworks.com/radar/faq-and-more
      */
     ring: 'Hold' | 'Trial' | 'Assess' | 'Adopt';
 
