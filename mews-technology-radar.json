@@ -265,7 +265,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach.</p>\n<p>Since dbt is using SQL, any can easily understand how data is processed and collaborate on changes.</p>"
+    "description": "<p>Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach.</p>\n<p>Since dbt is using SQL, anyone can easily understand how data is processed and collaborate on changes.</p>"
   },
   {
     "name": "Data: Power BI",
