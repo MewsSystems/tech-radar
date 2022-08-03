@@ -147,6 +147,14 @@
     "owner": "renatkulalov",
     "description": "Traditional Quality Assurance is a reactive approach that identifies defects later in the development cycle and often requires an extensive manual testing effort. This approach, whilst being widespread, has its obvious shortcomings. Issues are found on “already made” software and the time spent testing manually slows delivery whilst being fairly repetitive. \n \nQuality Engineering on the other hand aims to be proactive and optimised in its approach to delivering product of high quality. Actions taken within the transition to Quality Engineering will allow us to achieve so called “shift left testing” the main aim of which is to move Quality processes to earlier stages of development. QA Engineers can review and analyse the features before the development stage, contributing to upholding quality standards in the team rather than manually testing every issue and Developers will be able to run E2E tests with ease on their local machines during feature development. Which means less bugs make it to even a PR stage, features are not slowed down by manual testing and the delivery speeds up massively as a result. "
   },
+  {
+    "name": "Data: Tool-agnostic data ingestion",
+    "ring": "Adopt",
+    "quadrant": "Techniques",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "<p>Our main focus is on ensuring the quality and timeliness of data and we do not limit the tools to get the data into our lakehouse.</p>\n<p>There is a set of tools available to make it easier: Fivetran, Azure Functions, Azure Data Factory.</p>"
+  },
   
   
   
@@ -197,7 +205,7 @@
     "quadrant": "Architecture",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks."
+    "description": "<p>Single source of truth for our datasets is our lakehouse where we ingest our data, run transformations and cleaning and aggregate into data models to be consumed by our BI tools and other systems.</p>\n<p>Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks.</p>"
   },
   {
     "name": "Backend: Data layer improvements",
@@ -206,14 +214,6 @@
     "isNew": "FALSE",
     "owner": "marektresnak",
     "description": "Data layer encompasses gathering data from remote sources (e.g. Backend database) and displaying it in views. It constitutes a huge chunk of engineer's work. Reduction of boilerplate and addition of automation and code generation should increase our efficiency."
-  },
-  {
-    "name": "Data: mesh",
-    "ring": "Assess",
-    "quadrant": "Architecture",
-    "isNew": "TRUE",
-    "owner": "vojtakopal",
-    "description": "Scale our data products with applying this socio-technical paradigm."
   },
   
   
@@ -260,28 +260,20 @@
     "description": "Our monolithic app is developed around a relational database. Following the ideas from the Azure cloud-native initiative, we chose Azure SQL database as the primary data storage."
   },
   {
-    "name": "Data: Fivetran",
-    "ring": "Adopt",
-    "quadrant": "Platforms",
-    "isNew": "FALSE",
-    "owner": "vojtakopal",
-    "description": "Allow easy plug&play approach to continually ingest data into our lakehouse."
-  },
-  {
     "name": "Data: dbt",
     "ring": "Adopt",
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach."
+    "description": "<p>Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach.</p>\n<p>Since dbt is using SQL, any can easily understand how data is processed and collaborate on changes.</p>"
   },
   {
     "name": "Data: Power BI",
-    "ring": "Adopt",
+    "ring": "Hold",
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "Offer visual and analytical insights into our data."
+    "description": "<p>Previously used BI tool that is deprecated now in favor of Looker.</p>\n<p>Offer visual and analytical insights into our data.</p>"
   },
   {
     "name": "Data: Power BI Embedded",
@@ -289,7 +281,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "An embedded version of Power BI powering our Mews Analytics product."
+    "description": "<p>An embedded version of Power BI powering our Mews Analytics product.</p>\n<p>It allowed us to quickly build a complex set of reports across porfolios of our clients.</p>\n<p>As it serve the purpose, the vision is to replace it with our own solution for better UX.</p>"
   },
   {
     "name": "Data: Looker",
@@ -297,23 +289,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "Build our reporting and analyse data in a platform supporting CI/CD, testing and version control."
-  },
-  {
-    "name": "Data: Azure Data Factory for ETL and reverse ETL",
-    "ring": "Adopt",
-    "quadrant": "Platforms",
-    "isNew": "FALSE",
-    "owner": "vojtakopal",
-    "description": "Ingest data into our lakehouse using Azure Data Factory to support more advance workloads or connectors not support by Fivetran."
-  },
-  {
-    "name": "Data: Azure Functions for ETL",
-    "ring": "Adopt",
-    "quadrant": "Platforms",
-    "isNew": "FALSE",
-    "owner": "vojtakopal",
-    "description": "Ingest data into our lakehouse using Azure Functions to support custom API endpoints."
+    "description": "<p>Build our reporting and analyse data in a platform supporting CI/CD, testing and version control.</p>\n<p>Looker allows us to scale the collaboration on our BI and reporting across multiple teams and ensure quality and continuity of the outputs.</p>"
   },
   {
     "name": "Data: Hightouch",
@@ -321,6 +297,6 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "Push data from our lakehouse to destinations such as Intercom or Salesforce."
+    "description": "<p>We prefer a single tool to orgchestrate reverse ETL / data push from our lakehouse to destinations such as Intercom or Salesforce.</p>\n<p>In Gold layer, We define data models dedicated to each data consumer to control the dependencies.</p>"
   }
 ]
