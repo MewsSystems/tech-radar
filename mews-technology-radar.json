@@ -1,5 +1,5 @@
 [
-   {
+  {
     "name": "Statically-typed Languages",
     "ring": "Adopt",
     "quadrant": "Coding",
@@ -314,13 +314,13 @@
     "isNew": "FALSE",
     "owner": "vojtakopal",
     "description": "Ingest data into our lakehouse using Azure Functions to support custom API endpoints."
-  }
-    {
+  },
+  {
     "name": "Data: Hightouch",
     "ring": "Trial",
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
     "description": "Push data from our lakehouse to destinations such as Intercom or Salesforce."
-  },
+  }
 ]
