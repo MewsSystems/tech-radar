@@ -19,10 +19,10 @@ type Blip = {
     /**
      * Unlike the rings, the quadrants are mostly just to organize the blips and it's not that important where will individual blips end up.
      * 
-     * Coding - Lower level coding practices and guidelines.
-     * Architecture - High level code organization and structure approaches.
-     * Platforms - What we build our software on. Cloud providers, workflow automation, runtimes...
-     * Techniques - Elements of software development process.
+     * Coding - Lower level coding practices, guidelines and language choices.
+     * Architecture - High level code organization, structure and system architecture approaches.
+     * Techniques - Elements of engineering culture and software development process.
+     * Platforms - What we build our software on. Cloud providers, workflow automation, runtimes.
      */
     quadrant: 'Coding' | 'Architecture' | 'Platforms' | 'Techniques';
 
