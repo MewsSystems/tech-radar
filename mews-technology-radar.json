@@ -76,6 +76,66 @@
   
   
   {
+    "name": "API-only backend, thicker clients",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "A significant portion of our application is currently rendered on the server-side. We're aiming to completely remove server-side rendering in favor of client-side rendering that will utilize server-side APIs to fetch data / perform actions. The only server-side rendered pages that will stay are the \"bootstrap pages\" for the client-side apps."
+  },
+  {
+    "name": "Backend: Modularization",
+    "ring": "Trial",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "jbrestan",
+    "description": "We're outgrowing the current layered monolithic architecture fast, so in order to improve teams' agility, focus on their domain and autonomy, we recommend looking at possible \"fracture planes\" to separate your team's code and data from the others. Tooling team partnered with Payments Processing to trial this approach and pave the way for other modules, but you can start looking at your domain boundaries in advance to make the architecture changes easier once this is more easily available for everyone."
+  },
+  {
+    "name": "Backend: Hosted as a Single Application",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Because our Backend is designed as a monolithic application, we believe the easiest way to host it is by creating one application package and deploying it to Azure App Service. This leads to simple deployment and development environment that is easy to set-up."
+  },
+  {
+    "name": "Mobile: Multi-platform Development Using Flutter",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>Do not build native apps, use a multi-platform technology allowing us to reuse code and design across platforms.</p>\n<p>With the custom design system, we're not interested in native components each OS provides, the look and feel should be the same for each OS. Flutter is the technology of choice, as it provides high speed of development and high performance of the resulting app. The main complexity is the business logic, so we don't need to deal with the underlying platform capabilities that often.</p>"
+  },
+  {
+    "name": "Mobile: BLoC-based Architecture",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "ookami-kb",
+    "description": "<p>BLoC (Business Logic Component) is an architectural pattern initially suggested by Google that relies on streams for events and states. With the most popular implementation, bloc and flutter_bloc libraries, it allows us to architect an app as a set of FSM, each of them dealing with the logic of a specific feature of the app. BLoC plays nicely with the FP principles: events and states are immutable, UI is a function of the state.</p>"
+  },
+  {
+    "name": "Data: Lakehouse architecture for our DWH",
+    "ring": "Adopt",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "vojtakopal",
+    "description": "<p>Single source of truth for our datasets is our lakehouse where we ingest our data, run transformations and cleaning and aggregate into data models to be consumed by our BI tools and other systems.</p>\n<p>Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks.</p>"
+  },
+  {
+    "name": "Backend: Data layer improvements",
+    "ring": "Assess",
+    "quadrant": "Architecture",
+    "isNew": "FALSE",
+    "owner": "marektresnak",
+    "description": "Data layer encompasses gathering data from remote sources (e.g. Backend database) and displaying it in views. It constitutes a huge chunk of engineer's work. Reduction of boilerplate and addition of automation and code generation should increase our efficiency."
+  },
+  
+  
+  
+  
+  {
     "name": "Methodology-agnostic Delivery",
     "ring": "Adopt",
     "quadrant": "Techniques",
@@ -154,66 +214,6 @@
     "isNew": "FALSE",
     "owner": "vojtakopal",
     "description": "<p>Our main focus is on ensuring the quality and timeliness of data and we do not limit the tools to get the data into our lakehouse.</p>\n<p>There is a set of tools available to make it easier: Fivetran, Azure Functions, Azure Data Factory.</p>"
-  },
-  
-  
-  
-  
-  {
-    "name": "API-only backend, thicker clients",
-    "ring": "Adopt",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "marektresnak",
-    "description": "A significant portion of our application is currently rendered on the server-side. We're aiming to completely remove server-side rendering in favor of client-side rendering that will utilize server-side APIs to fetch data / perform actions. The only server-side rendered pages that will stay are the \"bootstrap pages\" for the client-side apps."
-  },
-  {
-    "name": "Backend: Modularization",
-    "ring": "Trial",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "jbrestan",
-    "description": "We're outgrowing the current layered monolithic architecture fast, so in order to improve teams' agility, focus on their domain and autonomy, we recommend looking at possible \"fracture planes\" to separate your team's code and data from the others. Tooling team partnered with Payments Processing to trial this approach and pave the way for other modules, but you can start looking at your domain boundaries in advance to make the architecture changes easier once this is more easily available for everyone."
-  },
-  {
-    "name": "Backend: Hosted as a Single Application",
-    "ring": "Adopt",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "marektresnak",
-    "description": "Because our Backend is designed as a monolithic application, we believe the easiest way to host it is by creating one application package and deploying it to Azure App Service. This leads to simple deployment and development environment that is easy to set-up."
-  },
-  {
-    "name": "Mobile: Multi-platform Development Using Flutter",
-    "ring": "Adopt",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "ookami-kb",
-    "description": "<p>Do not build native apps, use a multi-platform technology allowing us to reuse code and design across platforms.</p>\n<p>With the custom design system, we're not interested in native components each OS provides, the look and feel should be the same for each OS. Flutter is the technology of choice, as it provides high speed of development and high performance of the resulting app. The main complexity is the business logic, so we don't need to deal with the underlying platform capabilities that often.</p>"
-  },
-  {
-    "name": "Mobile: BLoC-based Architecture",
-    "ring": "Adopt",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "ookami-kb",
-    "description": "<p>BLoC (Business Logic Component) is an architectural pattern initially suggested by Google that relies on streams for events and states. With the most popular implementation, bloc and flutter_bloc libraries, it allows us to architect an app as a set of FSM, each of them dealing with the logic of a specific feature of the app. BLoC plays nicely with the FP principles: events and states are immutable, UI is a function of the state.</p>"
-  },
-  {
-    "name": "Data: Lakehouse architecture for our DWH",
-    "ring": "Adopt",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "vojtakopal",
-    "description": "<p>Single source of truth for our datasets is our lakehouse where we ingest our data, run transformations and cleaning and aggregate into data models to be consumed by our BI tools and other systems.</p>\n<p>Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks.</p>"
-  },
-  {
-    "name": "Backend: Data layer improvements",
-    "ring": "Assess",
-    "quadrant": "Architecture",
-    "isNew": "FALSE",
-    "owner": "marektresnak",
-    "description": "Data layer encompasses gathering data from remote sources (e.g. Backend database) and displaying it in views. It constitutes a huge chunk of engineer's work. Reduction of boilerplate and addition of automation and code generation should increase our efficiency."
   },
   
   
