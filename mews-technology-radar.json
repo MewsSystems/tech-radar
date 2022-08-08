@@ -53,7 +53,7 @@
     "quadrant": "Coding",
     "isNew": "FALSE",
     "owner": "ookami-kb",
-    "description": "<p>Feature-first code structure is more flexible and scalable. Each feature should be as independent as possible, and it can be viewed as a plugin that can be turned on and off with minimal impact on other features.</p>\n<p>Prefer this structure over layer-first approach (that can be easier to write but harder to maintain).</p>"
+    "description": "Feature-first code structure is more flexible and scalable. Each feature should be as independent as possible, and it can be viewed as a plugin that can be turned on and off with minimal impact on other features.<br/><br/>Prefer this structure over layer-first approach (that can be easier to write but harder to maintain)."
   },
   {
     "name": "Frontend: Repository modularization",
@@ -61,7 +61,7 @@
     "quadrant": "Coding",
     "isNew": "FALSE",
     "owner": "pbambusek",
-    "description": "<p>\nWhen writing a code, we want to have a clear definition and understanding of where the code belongs, so that the codebase is kept properly organized and is easy to maintain. Especially, in bigger applications maintained by multiple teams, we want to have clear and thin boundaries between parts of the code, so that it's clear which part is maintained and developed by which team.\n</p>\n<p>\nOur codebase was growing organically over the years, with no proper guidance on the code placement. Many bad patterns were adopted or followed, and are still used today. We want untangle the code into more well-defined and isolated modules, with each of them focusing on concrete feature or domain, and having a clear owner. \n</p>\n<p>For more details, see <a href=\"https://github.com/MewsSystems/tech-documents/blob/master/rfcs/0065-application-code-structure-improvements.md\">RFC-0065</a></p>"
+    "description": "When writing a code, we want to have a clear definition and understanding of where the code belongs, so that the codebase is kept properly organized and is easy to maintain. Especially, in bigger applications maintained by multiple teams, we want to have clear and thin boundaries between parts of the code, so that it's clear which part is maintained and developed by which team.<br/><br/>Our codebase was growing organically over the years, with no proper guidance on the code placement. Many bad patterns were adopted or followed, and are still used today. We want untangle the code into more well-defined and isolated modules, with each of them focusing on concrete feature or domain, and having a clear owner.<br/><br/>For more details, see <a href=\"https://github.com/MewsSystems/tech-documents/blob/master/rfcs/0065-application-code-structure-improvements.md\">RFC-0065</a>"
   },
   {
     "name": "Open-source Code",
@@ -105,7 +105,7 @@
     "quadrant": "Architecture",
     "isNew": "FALSE",
     "owner": "ookami-kb",
-    "description": "<p>Do not build native apps, use a multi-platform technology allowing us to reuse code and design across platforms.</p>\n<p>With the custom design system, we're not interested in native components each OS provides, the look and feel should be the same for each OS. Flutter is the technology of choice, as it provides high speed of development and high performance of the resulting app. The main complexity is the business logic, so we don't need to deal with the underlying platform capabilities that often.</p>"
+    "description": "Do not build native apps, use a multi-platform technology allowing us to reuse code and design across platforms.<br/><br/>With the custom design system, we're not interested in native components each OS provides, the look and feel should be the same for each OS. Flutter is the technology of choice, as it provides high speed of development and high performance of the resulting app. The main complexity is the business logic, so we don't need to deal with the underlying platform capabilities that often."
   },
   {
     "name": "Mobile: BLoC-based Architecture",
@@ -113,7 +113,7 @@
     "quadrant": "Architecture",
     "isNew": "FALSE",
     "owner": "ookami-kb",
-    "description": "<p>BLoC (Business Logic Component) is an architectural pattern initially suggested by Google that relies on streams for events and states. With the most popular implementation, bloc and flutter_bloc libraries, it allows us to architect an app as a set of FSM, each of them dealing with the logic of a specific feature of the app. BLoC plays nicely with the FP principles: events and states are immutable, UI is a function of the state.</p>"
+    "description": "BLoC (Business Logic Component) is an architectural pattern initially suggested by Google that relies on streams for events and states. With the most popular implementation, bloc and flutter_bloc libraries, it allows us to architect an app as a set of FSM, each of them dealing with the logic of a specific feature of the app. BLoC plays nicely with the FP principles: events and states are immutable, UI is a function of the state."
   },
   {
     "name": "Data: Lakehouse architecture for our DWH",
@@ -121,7 +121,7 @@
     "quadrant": "Architecture",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Single source of truth for our datasets is our lakehouse where we ingest our data, run transformations and cleaning and aggregate into data models to be consumed by our BI tools and other systems.</p>\n<p>Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks.</p>"
+    "description": "Single source of truth for our datasets is our lakehouse where we ingest our data, run transformations and cleaning and aggregate into data models to be consumed by our BI tools and other systems.<br/><br/>Use delta format for storing our data in Azure Data Lake accessed and processed with Azure Databricks."
   },
   {
     "name": "Backend: Data layer improvements",
@@ -173,7 +173,7 @@
     "quadrant": "Techniques",
     "isNew": "FALSE",
     "owner": "jbrestan",
-    "description": "<p>Integrate early, integrate often. Feature branches should live at most a few days so that PR stay reasonably small, and that we can ensure all the changes work together. Use Feature Toggles and/or Branch by Abstraction patterns to keep unfinished functionality hidden from users to reduce risks of breaking changes while still iterating on the new functionality or fix.</p>\n<p>Before merging, use PR automation to prevent regressions and disrupting other people's work. Frequent, small, high quality changes enable Continuous Delivery</p>"
+    "description": "Integrate early, integrate often. Feature branches should live at most a few days so that PR stay reasonably small, and that we can ensure all the changes work together. Use Feature Toggles and/or Branch by Abstraction patterns to keep unfinished functionality hidden from users to reduce risks of breaking changes while still iterating on the new functionality or fix.<br/><br/>Before merging, use PR automation to prevent regressions and disrupting other people's work. Frequent, small, high quality changes enable Continuous Delivery."
   },
   {
     "name": "Continuous Delivery",
@@ -181,7 +181,7 @@
     "quadrant": "Techniques",
     "isNew": "FALSE",
     "owner": "jbrestan",
-    "description": "<p>Use patterns and practices that ensure our main branches are always in a releasable state. Feature Toggles, strong test automation coverage on all levels (unit, integration, end to end), and manual pre-merge testing only where necessary. Treat merged changes as already on their way to production, do not rely on any manual steps after merging, except enabling feature flags to perform feature release. Continuous Delivery practices have high impact on quality and lead time if done right, but also can lead to more problems if the changes aren't tested and isolated well.</p>\n<p>Where possible, consider also Continuous Deployment when Continuous Delivery is already achieved.</p>"
+    "description": "Use patterns and practices that ensure our main branches are always in a releasable state. Feature Toggles, strong test automation coverage on all levels (unit, integration, end to end), and manual pre-merge testing only where necessary. Treat merged changes as already on their way to production, do not rely on any manual steps after merging, except enabling feature flags to perform feature release. Continuous Delivery practices have high impact on quality and lead time if done right, but also can lead to more problems if the changes aren't tested and isolated well.<br/><br/>Where possible, consider also Continuous Deployment when Continuous Delivery is already achieved."
   },
   {
     "name": "RFCs as Change Documentation",
@@ -189,7 +189,7 @@
     "quadrant": "Techniques",
     "isNew": "FALSE",
     "owner": "pbambusek",
-    "description": "<p>\nAs our company grows, it is more and more difficult to align on significant changes. It is much harder to address every interested person or stakeholder in a single meeting or similar event. And for bigger problems, where lot of ideas and arguments needs to be considered, it's even unfeasible to discuss them in person completely.\n</p>\n<p>\nAs a solution to scale, we want to adopt process of writing and reviewing design documents. We will adopt a name \"Request for Comments\" (RFC) for the documents, as it is well-known and self-explanatory concept in our industry. The benefit of written documents is for each interested person to be able to read and review them when it suits them, meeting only to discuss details if needed. Once a document is written, it is also kept archived for future reference, serving as a documentation of past decisions.\n</p>"
+    "description": "As our company grows, it is more and more difficult to align on significant changes. It is much harder to address every interested person or stakeholder in a single meeting or similar event. And for bigger problems, where lot of ideas and arguments needs to be considered, it's even unfeasible to discuss them in person completely.<br/><br/>As a solution to scale, we want to adopt process of writing and reviewing design documents. We will adopt a name \"Request for Comments\" (RFC) for the documents, as it is well-known and self-explanatory concept in our industry. The benefit of written documents is for each interested person to be able to read and review them when it suits them, meeting only to discuss details if needed. Once a document is written, it is also kept archived for future reference, serving as a documentation of past decisions."
   },
   {
     "name": "Quality: Improving E2E coverage",
@@ -205,7 +205,7 @@
     "quadrant": "Techniques",
     "isNew": "FALSE",
     "owner": "renatkulalov",
-    "description": "Traditional Quality Assurance is a reactive approach that identifies defects later in the development cycle and often requires an extensive manual testing effort. This approach, whilst being widespread, has its obvious shortcomings. Issues are found on “already made” software and the time spent testing manually slows delivery whilst being fairly repetitive. \n \nQuality Engineering on the other hand aims to be proactive and optimised in its approach to delivering product of high quality. Actions taken within the transition to Quality Engineering will allow us to achieve so called “shift left testing” the main aim of which is to move Quality processes to earlier stages of development. QA Engineers can review and analyse the features before the development stage, contributing to upholding quality standards in the team rather than manually testing every issue and Developers will be able to run E2E tests with ease on their local machines during feature development. Which means less bugs make it to even a PR stage, features are not slowed down by manual testing and the delivery speeds up massively as a result. "
+    "description": "Traditional Quality Assurance is a reactive approach that identifies defects later in the development cycle and often requires an extensive manual testing effort. This approach, whilst being widespread, has its obvious shortcomings. Issues are found on “already made” software and the time spent testing manually slows delivery whilst being fairly repetitive.<br/><br/>Quality Engineering on the other hand aims to be proactive and optimised in its approach to delivering product of high quality. Actions taken within the transition to Quality Engineering will allow us to achieve so called “shift left testing” the main aim of which is to move Quality processes to earlier stages of development. QA Engineers can review and analyse the features before the development stage, contributing to upholding quality standards in the team rather than manually testing every issue and Developers will be able to run E2E tests with ease on their local machines during feature development. Which means less bugs make it to even a PR stage, features are not slowed down by manual testing and the delivery speeds up massively as a result. "
   },
   {
     "name": "Data: Tool-agnostic data ingestion",
@@ -213,7 +213,7 @@
     "quadrant": "Techniques",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Our main focus is on ensuring the quality and timeliness of data and we do not limit the tools to get the data into our lakehouse.</p>\n<p>There is a set of tools available to make it easier: Fivetran, Azure Functions, Azure Data Factory.</p>"
+    "description": "Our main focus is on ensuring the quality and timeliness of data and we do not limit the tools to get the data into our lakehouse.<br/><br/>There is a set of tools available to make it easier: Fivetran, Azure Functions, Azure Data Factory."
   },
   
   
@@ -241,7 +241,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "jbrestan",
-    "description": "<p>Automate repository and PR tasks (except builds themselves) using GH Actions. They are more lightweight and easier to author than Azure DevOps pipelines, and they offer a lot of functionality specific to automating GH events and processes. Platform does support GH Actions with some knowledge and monitoring, but not as extensively as with DevOps.</p>\n<p>When using 3rd party Actions, consider the trustworthiness and risks associated with bugs or security leaks. Prefer pinning 3rd party actions to a specific commit, not just version, as those are mutable.</p>"
+    "description": "Automate repository and PR tasks (except builds themselves) using GH Actions. They are more lightweight and easier to author than Azure DevOps pipelines, and they offer a lot of functionality specific to automating GH events and processes. Platform does support GH Actions with some knowledge and monitoring, but not as extensively as with DevOps.<br/><br/>When using 3rd party Actions, consider the trustworthiness and risks associated with bugs or security leaks. Prefer pinning 3rd party actions to a specific commit, not just version, as those are mutable."
   },
   {
     "name": "Zapier",
@@ -249,7 +249,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "ookami-kb",
-    "description": "<p>Automate cross-tool actions with Zaps to reduce manually copying tasks or alerts, or add new functionality to tools that provide webhooks on various actions. Although Zapeir doesn't provide that much functionality and maintainability as *aaC approaches (GitHub actions etc), zaps are easier to write and have a lot of integrations out of the box, so we use them for non-crucial actions and as a glue for different services.</p>"
+    "description": "Automate cross-tool actions with Zaps to reduce manually copying tasks or alerts, or add new functionality to tools that provide webhooks on various actions. Although Zapeir doesn't provide that much functionality and maintainability as *aaC approaches (GitHub actions etc), zaps are easier to write and have a lot of integrations out of the box, so we use them for non-crucial actions and as a glue for different services."
   },
   {
     "name": "Backend: Azure SQL",
@@ -265,7 +265,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach.</p>\n<p>Since dbt is using SQL, anyone can easily understand how data is processed and collaborate on changes.</p>"
+    "description": "Empower our analyst and analytical engineers to build additional data pipelines with SQL-like approach.<br/><br/>Since dbt is using SQL, anyone can easily understand how data is processed and collaborate on changes."
   },
   {
     "name": "Data: Power BI",
@@ -273,7 +273,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Previously used BI tool that is deprecated now in favor of Looker.</p>\n<p>Offer visual and analytical insights into our data.</p>"
+    "description": "Previously used BI tool that is deprecated now in favor of Looker.<br/><br/>Offer visual and analytical insights into our data."
   },
   {
     "name": "Data: Power BI Embedded",
@@ -281,7 +281,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>An embedded version of Power BI powering our Mews Analytics product.</p>\n<p>It allowed us to quickly build a complex set of reports across porfolios of our clients.</p>\n<p>As it serve the purpose, the vision is to replace it with our own solution for better UX.</p>"
+    "description": "An embedded version of Power BI powering our Mews Analytics product.<br/><br/>It allowed us to quickly build a complex set of reports across porfolios of our clients.<br/><br/>As it serve the purpose, the vision is to replace it with our own solution for better UX."
   },
   {
     "name": "Data: Looker",
@@ -289,7 +289,7 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>Build our reporting and analyse data in a platform supporting CI/CD, testing and version control.</p>\n<p>Looker allows us to scale the collaboration on our BI and reporting across multiple teams and ensure quality and continuity of the outputs.</p>"
+    "description": "Build our reporting and analyse data in a platform supporting CI/CD, testing and version control.<br/><br/>Looker allows us to scale the collaboration on our BI and reporting across multiple teams and ensure quality and continuity of the outputs."
   },
   {
     "name": "Data: Hightouch",
@@ -297,6 +297,6 @@
     "quadrant": "Platforms",
     "isNew": "FALSE",
     "owner": "vojtakopal",
-    "description": "<p>We prefer a single tool to orgchestrate reverse ETL / data push from our lakehouse to destinations such as Intercom or Salesforce.</p>\n<p>In Gold layer, We define data models dedicated to each data consumer to control the dependencies.</p>"
+    "description": "We prefer a single tool to orgchestrate reverse ETL / data push from our lakehouse to destinations such as Intercom or Salesforce.<br/><br/>In Gold layer, We define data models dedicated to each data consumer to control the dependencies."
   }
 ]
