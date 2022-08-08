@@ -38,6 +38,7 @@ type Blip = {
 
     /**
      * A paragraph or two of guidance about the blip - the what and why, and where to find more information.
+     * Supports HTML formatting.
      */
     description: string;
 };
